@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <form id="f">
+      <input id="a" required />
+      <input id="b" required />
+      <input id="c" required />
+      <button>Check</button>
+    </form>
+    <div id="r"></div>
+    <script>
+      f.onsubmit = (e) => {
+        e.preventDefault();
+        let a = +document.getElementById("a").value;
+        let b = +document.getElementById("b").value;
+        let c = +document.getElementById("c").value;
+        let r = "";
+        if (a <= 0 || b <= 0 || c <= 0) r = "Sides must be positive";
+        else if (a + b <= c || a + c <= b || b + c <= a) r = "Not a triangle";
+        else if (a == b && b == c) r = "Equilateral";
+        else if (a == b || b == c || a == c) r = "Isosceles";
+        else r = "Scalene";
+        document.getElementById("r").textContent = r;
+      };
+    </script>
+  </body>
+</html>
