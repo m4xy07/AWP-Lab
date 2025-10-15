@@ -1,13 +1,33 @@
+<!DOCTYPE html>
 <html>
-<head>
-    <title>Add 2 nos</title>
-</head>
-<body>
+  <head>
+    <title>Addition Using Event Handling</title>
     <script>
-        const a = 5;
-        const b = 7;
-        console.log(a + b);
-        document.write(a + b);
+      function addNumbers() {
+        const num1 = Number(document.getElementById("num1").value);
+        const num2 = Number(document.getElementById("num2").value);
+        const resultElement = document.getElementById("result");
+
+        if (num1 || (num1 === 0 && num2) || num2 === 0) {
+          resultElement.textContent = "Result: " + (num1 + num2);
+        } else {
+          resultElement.textContent = "Please enter valid numbers!";
+        }
+      }
     </script>
-</body>
+  </head>
+
+  <body>
+    <h2>Addition of Two Numbers</h2>
+
+    <label>Enter First Number:</label><br />
+    <input type="text" id="num1" /><br /><br />
+
+    <label>Enter Second Number:</label><br />
+    <input type="text" id="num2" /><br /><br />
+
+    <button onclick="addNumbers()">Add</button>
+
+    <p id="result"></p>
+  </body>
 </html>

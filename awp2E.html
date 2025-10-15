@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AngularJS Controller Example</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+
+  <style>
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background: linear-gradient(135deg, #f0f9ff, #e0f7fa);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      color: #333;
+    }
+
+    h2 {
+      color: #00796b;
+      margin-bottom: 20px;
+    }
+
+    div {
+      background: white;
+      padding: 25px 30px;
+      border-radius: 12px;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+      width: 320px;
+      text-align: left;
+    }
+
+    input {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 15px;
+    }
+
+    hr {
+      border: none;
+      border-top: 2px solid #b2ebf2;
+      margin: 15px 0;
+    }
+
+    p {
+      font-size: 16px;
+      color: #00796b;
+      font-weight: 500;
+    }
+  </style>
+</head>
+
+<body ng-app="mainApp" ng-controller="studentController">
+  <h2>AngularJS Sample Application</h2>
+
+  <div>
+    <label>Enter first name:</label>
+    <input type="text" ng-model="student.firstName">
+
+    <label>Enter last name:</label>
+    <input type="text" ng-model="student.lastName">
+
+    <hr>
+
+    <p>You are entering: {{ student.fullName() }}</p>
+  </div>
+
+  <script>
+    var mainApp = angular.module("mainApp", []);
+
+    mainApp.controller("studentController", function($scope) {
+      $scope.student = {
+        firstName: "",
+        lastName: "",
+
+        fullName: function() {
+          var studentObject = $scope.student;
+          return studentObject.firstName + " " + studentObject.lastName;
+        }
+      };
+    });
+  </script>
+</body>
+</html>

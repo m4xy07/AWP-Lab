@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Moving Train</title>
+
+  <script type="text/javascript">
+    var img = null;
+
+    function init() {
+      img = document.getElementById("img");
+      img.style.position = "relative";
+      img.style.left = "0px";
+    }
+
+    function moveRight() {
+      img.style.left = parseInt(img.style.left) + 50 + "px";
+    }
+
+    window.onload = init;
+  </script>
+
+  <style>
+    body {
+      text-align: center;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #f0f9ff, #cbebff);
+      height: 100vh;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    h1 {
+      color: #0077b6;
+      margin-bottom: 10px;
+    }
+
+    p {
+      color: #555;
+      margin-bottom: 30px;
+    }
+
+    img {
+      width: 250px;
+      height: auto;
+      transition: left 0.5s ease;
+    }
+
+    button {
+      margin-top: 30px;
+      background-color: #0077b6;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      font-size: 16px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    button:hover {
+      background-color: #005f8f;
+    }
+  </style>
+</head>
+<body>
+  <h1>Welcome to the Moving Train Simulation</h1>
+  <p>Experience the thrill of a moving train with our interactive simulation.</p>
+
+  <form>
+    <img src="https://thumbs.dreamstime.com/b/toy-train-cartoon-style-illustration-vector-colorful-cool-game-kids-127139246.jpg"
+         id="img" alt="Cartoon Train">
+    <br><br>
+    <button type="button" onclick="moveRight()">Start Simulation</button>
+  </form>
+</body>
+</html>
